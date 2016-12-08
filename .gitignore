@@ -1,4 +1,5 @@
-# ignore the Google Firebase plist file because it contains
+# Ignore the Google Firebase plist file because it contains
 # private login information for my account.  Anyone wanting
 # to use this code needs to create their own Firebase plist
 GoogleService-Info.plist
+.DS_Store
