@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		B13D6807B8959C65B42A0445 /* Pods_KBPSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765995DDB2AF650F18C1434F /* Pods_KBPSocial.framework */; };
+		E374AEB71DFA0AEB0021346A /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374AEB61DFA0AEB0021346A /* CustomUIView.swift */; };
+		E374AEBA1DFA0B850021346A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374AEB91DFA0B850021346A /* Constants.swift */; };
+		E374AEBC1DFA0DE90021346A /* CustomRoundUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374AEBB1DFA0DE90021346A /* CustomRoundUIButton.swift */; };
+		E374AEBE1DFA10DD0021346A /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374AEBD1DFA10DD0021346A /* CustomUITextField.swift */; };
+		E374AEC01DFA12510021346A /* CustomSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374AEBF1DFA12510021346A /* CustomSignInButton.swift */; };
 		E38D9DA91DF78EB3009C0E7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D9DA81DF78EB3009C0E7F /* AppDelegate.swift */; };
 		E38D9DAB1DF78EB3009C0E7F /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38D9DAA1DF78EB3009C0E7F /* SignInVC.swift */; };
 		E38D9DAE1DF78EB4009C0E7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E38D9DAC1DF78EB4009C0E7F /* Main.storyboard */; };
@@ -20,6 +25,11 @@
 		68BEF792C44EEF9825B7627B /* Pods-KBPSocial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KBPSocial.release.xcconfig"; path = "Pods/Target Support Files/Pods-KBPSocial/Pods-KBPSocial.release.xcconfig"; sourceTree = "<group>"; };
 		765995DDB2AF650F18C1434F /* Pods_KBPSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KBPSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC7B1CBFBB456FA23338DB6 /* Pods-KBPSocial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KBPSocial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KBPSocial/Pods-KBPSocial.debug.xcconfig"; sourceTree = "<group>"; };
+		E374AEB61DFA0AEB0021346A /* CustomUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
+		E374AEB91DFA0B850021346A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E374AEBB1DFA0DE90021346A /* CustomRoundUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRoundUIButton.swift; sourceTree = "<group>"; };
+		E374AEBD1DFA10DD0021346A /* CustomUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
+		E374AEBF1DFA12510021346A /* CustomSignInButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSignInButton.swift; sourceTree = "<group>"; };
 		E38D9DA51DF78EB3009C0E7F /* KBPSocial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KBPSocial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38D9DA81DF78EB3009C0E7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E38D9DAA1DF78EB3009C0E7F /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -59,6 +69,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E374AEB81DFA0B6D0021346A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E374AEB91DFA0B850021346A /* Constants.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		E38743831DF7913000193596 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +88,10 @@
 		E38743841DF7913700193596 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E374AEB61DFA0AEB0021346A /* CustomUIView.swift */,
+				E374AEBB1DFA0DE90021346A /* CustomRoundUIButton.swift */,
+				E374AEBD1DFA10DD0021346A /* CustomUITextField.swift */,
+				E374AEBF1DFA12510021346A /* CustomSignInButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -102,6 +124,7 @@
 		E38D9DA71DF78EB3009C0E7F /* KBPSocial */ = {
 			isa = PBXGroup;
 			children = (
+				E374AEB81DFA0B6D0021346A /* Utilities */,
 				E38743851DF7913D00193596 /* Model */,
 				E38743841DF7913700193596 /* View */,
 				E38743831DF7913000193596 /* Controller */,
@@ -240,8 +263,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E374AEC01DFA12510021346A /* CustomSignInButton.swift in Sources */,
+				E374AEBC1DFA0DE90021346A /* CustomRoundUIButton.swift in Sources */,
+				E374AEB71DFA0AEB0021346A /* CustomUIView.swift in Sources */,
 				E38D9DAB1DF78EB3009C0E7F /* SignInVC.swift in Sources */,
 				E38D9DA91DF78EB3009C0E7F /* AppDelegate.swift in Sources */,
+				E374AEBE1DFA10DD0021346A /* CustomUITextField.swift in Sources */,
+				E374AEBA1DFA0B850021346A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
