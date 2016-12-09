@@ -19,6 +19,7 @@
 		E38D9DB01DF78EB4009C0E7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E38D9DAF1DF78EB4009C0E7F /* Assets.xcassets */; };
 		E38D9DB31DF78EB4009C0E7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E38D9DB11DF78EB4009C0E7F /* LaunchScreen.storyboard */; };
 		E38D9DBB1DF78F53009C0E7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E38D9DBA1DF78F53009C0E7F /* GoogleService-Info.plist */; };
+		E3DBC1B81DFB1BAC0079712E /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC1B71DFB1BAC0079712E /* FeedVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		E38D9DB21DF78EB4009C0E7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E38D9DB41DF78EB4009C0E7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E38D9DBA1DF78F53009C0E7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E3DBC1B61DFB174D0079712E /* KBPSocial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KBPSocial.entitlements; sourceTree = "<group>"; };
+		E3DBC1B71DFB1BAC0079712E /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				E38D9DAA1DF78EB3009C0E7F /* SignInVC.swift */,
+				E3DBC1B71DFB1BAC0079712E /* FeedVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -124,6 +128,7 @@
 		E38D9DA71DF78EB3009C0E7F /* KBPSocial */ = {
 			isa = PBXGroup;
 			children = (
+				E3DBC1B61DFB174D0079712E /* KBPSocial.entitlements */,
 				E374AEB81DFA0B6D0021346A /* Utilities */,
 				E38743851DF7913D00193596 /* Model */,
 				E38743841DF7913700193596 /* View */,
@@ -175,6 +180,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = H7769TTHS5;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -267,6 +277,7 @@
 				E374AEBC1DFA0DE90021346A /* CustomRoundUIButton.swift in Sources */,
 				E374AEB71DFA0AEB0021346A /* CustomUIView.swift in Sources */,
 				E38D9DAB1DF78EB3009C0E7F /* SignInVC.swift in Sources */,
+				E3DBC1B81DFB1BAC0079712E /* FeedVC.swift in Sources */,
 				E38D9DA91DF78EB3009C0E7F /* AppDelegate.swift in Sources */,
 				E374AEBE1DFA10DD0021346A /* CustomUITextField.swift in Sources */,
 				E374AEBA1DFA0B850021346A /* Constants.swift in Sources */,
@@ -394,7 +405,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CC7B1CBFBB456FA23338DB6 /* Pods-KBPSocial.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KBPSocial/KBPSocial.entitlements;
 				DEVELOPMENT_TEAM = H7769TTHS5;
 				INFOPLIST_FILE = KBPSocial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -408,7 +421,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 68BEF792C44EEF9825B7627B /* Pods-KBPSocial.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KBPSocial/KBPSocial.entitlements;
 				DEVELOPMENT_TEAM = H7769TTHS5;
 				INFOPLIST_FILE = KBPSocial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

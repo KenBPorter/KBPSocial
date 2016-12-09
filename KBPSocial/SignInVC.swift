@@ -13,6 +13,8 @@ import FBSDKLoginKit
 
 import Firebase
 
+import SwiftKeychainWrapper
+
 
 class SignInVC: UIViewController {
     
@@ -23,7 +25,22 @@ class SignInVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        // check if the UID has been previously stored in device keychain
+        // we don't do anything with it, just need to know if it exists
+        // if it does, we're 'signed in' so perform seque to next storyboard scene
+        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
+            print("KBP: UID extracted from keychain in SignInVC! whoot!")
+            performSegue(withIdentifier: "goToFeed", sender: nil)
+        } else {
+            // nothing has been previously saved, so continue as normal
+            // and call login stuff
+            print("KBP: no previous UID found - go to signin")
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +77,12 @@ class SignInVC: UIViewController {
             } else {
                 print("KBP: Successfully used FB to authenicate to Firebase")
                 
+                // store 'uid' to local device keychain for subsequent logins
+               if let user = user {
+                self.completeSignIn(id: user.uid)
+                }
+                
+                
             }
         }) // end if FIRAuth line....
     }  // end of func firebaseAuth ()
@@ -75,6 +98,12 @@ class SignInVC: UIViewController {
                 if error == nil {
                     // this means we signed in!  Greeat!
                     print("KBP: User authenticated with email/pwd to Firebase.")
+                    
+                    // save id to keychain
+                    if let user = user {
+                        self.completeSignIn(id: user.uid)
+                    }
+                    
                 } else {
                     FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: { (user, error) in
                         if error != nil {
@@ -82,7 +111,12 @@ class SignInVC: UIViewController {
                             print("KBP: Unable to authenticate with Firebase using email.")
                         } else {
                             // account created!
-                            print("KBP: User created adn authenticated with email/pwd to Firebase.")
+                            print("KBP: User created and authenticated with email/pwd to Firebase.")
+                            
+                            // save id to keychain
+                            if let user = user {
+                                self.completeSignIn(id: user.uid)
+                            }
                         }
                     }) // end if FIRAuth create user line....
                     
@@ -91,4 +125,12 @@ class SignInVC: UIViewController {
             }) // end if FIRAuth signin line....
         }
     }
+    
+    func completeSignIn(id: String) {
+        let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
+        print("KBP: UID saved to keychain: \(keychainResult)")
+        
+        performSegue(withIdentifier: "goToFeed", sender: nil)
+    }
+    
 }
