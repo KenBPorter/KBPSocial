@@ -93,7 +93,7 @@
                                         <rect key="frame" x="0.0" y="33" width="248" height="21"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYd-H8-glW" customClass="CustomSignInButton" customModule="KBPSocial" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="66" width="248" height="33"/>
@@ -102,6 +102,9 @@
                                         <state key="normal" title="Sign In">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signinTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v7O-3x-8Ay"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -125,6 +128,10 @@
                             <constraint firstItem="S3w-cr-WDy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zJp-dS-0x4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="tod-py-Ffn" id="GHe-je-3n8"/>
+                        <outlet property="pwdField" destination="xgn-bY-zWp" id="Dpe-pk-9fg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,6 +15,11 @@ import Firebase
 
 
 class SignInVC: UIViewController {
+    
+    // @IBOutlets
+    @IBOutlet weak var emailField: CustomUITextField!
+    @IBOutlet weak var pwdField: CustomUITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +31,9 @@ class SignInVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    // Firebase signin with Facebook stuff
     @IBAction func facebookBtnTapped(_ sender: Any) {
-        
          let facebookLogin = FBSDKLoginManager()
         
         facebookLogin.logIn(withReadPermissions: ["email"], from: self) { (result,error) in
@@ -46,9 +52,7 @@ class SignInVC: UIViewController {
         }
     }
 
-    
     func firebaseAuth(_ credential: FIRAuthCredential) {
-
         FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
             if error != nil {
                 print("KBP: Unable to authenticate with FB into Firebase - \(error)")
@@ -58,7 +62,33 @@ class SignInVC: UIViewController {
                 
             }
         }) // end if FIRAuth line....
-
     }  // end of func firebaseAuth ()
     
+    
+    // Firebase signin with username/email stuff
+    @IBAction func signinTapped(_ sender: Any) {
+        
+        // ensure we have text in the entry fields
+        if let email = emailField.text, let pwd = pwdField.text {
+            FIRAuth.auth()?.signIn(withEmail: email, password: pwd, completion: { (user, error) in
+                
+                if error == nil {
+                    // this means we signed in!  Greeat!
+                    print("KBP: User authenticated with email/pwd to Firebase.")
+                } else {
+                    FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: { (user, error) in
+                        if error != nil {
+                            // something really wrong
+                            print("KBP: Unable to authenticate with Firebase using email.")
+                        } else {
+                            // account created!
+                            print("KBP: User created adn authenticated with email/pwd to Firebase.")
+                        }
+                    }) // end if FIRAuth create user line....
+                    
+                }
+                
+            }) // end if FIRAuth signin line....
+        }
+    }
 }
