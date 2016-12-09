@@ -19,6 +19,7 @@
 		E38D9DB01DF78EB4009C0E7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E38D9DAF1DF78EB4009C0E7F /* Assets.xcassets */; };
 		E38D9DB31DF78EB4009C0E7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E38D9DB11DF78EB4009C0E7F /* LaunchScreen.storyboard */; };
 		E38D9DBB1DF78F53009C0E7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E38D9DBA1DF78F53009C0E7F /* GoogleService-Info.plist */; };
+		E39110771DFB3D2A0020B6CE /* CustomCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39110761DFB3D2A0020B6CE /* CustomCircleView.swift */; };
 		E3DBC1B81DFB1BAC0079712E /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC1B71DFB1BAC0079712E /* FeedVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		E38D9DB21DF78EB4009C0E7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E38D9DB41DF78EB4009C0E7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E38D9DBA1DF78F53009C0E7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E39110761DFB3D2A0020B6CE /* CustomCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCircleView.swift; sourceTree = "<group>"; };
 		E3DBC1B61DFB174D0079712E /* KBPSocial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KBPSocial.entitlements; sourceTree = "<group>"; };
 		E3DBC1B71DFB1BAC0079712E /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 				E374AEBB1DFA0DE90021346A /* CustomRoundUIButton.swift */,
 				E374AEBD1DFA10DD0021346A /* CustomUITextField.swift */,
 				E374AEBF1DFA12510021346A /* CustomSignInButton.swift */,
+				E39110761DFB3D2A0020B6CE /* CustomCircleView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			files = (
 				E374AEC01DFA12510021346A /* CustomSignInButton.swift in Sources */,
 				E374AEBC1DFA0DE90021346A /* CustomRoundUIButton.swift in Sources */,
+				E39110771DFB3D2A0020B6CE /* CustomCircleView.swift in Sources */,
 				E374AEB71DFA0AEB0021346A /* CustomUIView.swift in Sources */,
 				E38D9DAB1DF78EB3009C0E7F /* SignInVC.swift in Sources */,
 				E3DBC1B81DFB1BAC0079712E /* FeedVC.swift in Sources */,
