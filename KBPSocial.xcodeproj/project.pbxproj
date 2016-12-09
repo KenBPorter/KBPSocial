@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B13D6807B8959C65B42A0445 /* Pods_KBPSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765995DDB2AF650F18C1434F /* Pods_KBPSocial.framework */; };
+		E33C82931DFB53B800BAA7E9 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C82921DFB53B800BAA7E9 /* PostCell.swift */; };
 		E374AEB71DFA0AEB0021346A /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374AEB61DFA0AEB0021346A /* CustomUIView.swift */; };
 		E374AEBA1DFA0B850021346A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374AEB91DFA0B850021346A /* Constants.swift */; };
 		E374AEBC1DFA0DE90021346A /* CustomRoundUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374AEBB1DFA0DE90021346A /* CustomRoundUIButton.swift */; };
@@ -27,6 +28,7 @@
 		68BEF792C44EEF9825B7627B /* Pods-KBPSocial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KBPSocial.release.xcconfig"; path = "Pods/Target Support Files/Pods-KBPSocial/Pods-KBPSocial.release.xcconfig"; sourceTree = "<group>"; };
 		765995DDB2AF650F18C1434F /* Pods_KBPSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KBPSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC7B1CBFBB456FA23338DB6 /* Pods-KBPSocial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KBPSocial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KBPSocial/Pods-KBPSocial.debug.xcconfig"; sourceTree = "<group>"; };
+		E33C82921DFB53B800BAA7E9 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		E374AEB61DFA0AEB0021346A /* CustomUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
 		E374AEB91DFA0B850021346A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E374AEBB1DFA0DE90021346A /* CustomRoundUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRoundUIButton.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				E374AEBD1DFA10DD0021346A /* CustomUITextField.swift */,
 				E374AEBF1DFA12510021346A /* CustomSignInButton.swift */,
 				E39110761DFB3D2A0020B6CE /* CustomCircleView.swift */,
+				E33C82921DFB53B800BAA7E9 /* PostCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				E38D9DA91DF78EB3009C0E7F /* AppDelegate.swift in Sources */,
 				E374AEBE1DFA10DD0021346A /* CustomUITextField.swift in Sources */,
 				E374AEBA1DFA0B850021346A /* Constants.swift in Sources */,
+				E33C82931DFB53B800BAA7E9 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
