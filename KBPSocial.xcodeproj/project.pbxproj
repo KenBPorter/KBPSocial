@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EB10B561DFC87A700B69B7C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB10B551DFC87A700B69B7C /* DataService.swift */; };
+		0EB10B591DFC9CE100B69B7C /* Ext_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB10B581DFC9CE100B69B7C /* Ext_UIViewController.swift */; };
 		B13D6807B8959C65B42A0445 /* Pods_KBPSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765995DDB2AF650F18C1434F /* Pods_KBPSocial.framework */; };
 		E33C82931DFB53B800BAA7E9 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C82921DFB53B800BAA7E9 /* PostCell.swift */; };
 		E374AEB71DFA0AEB0021346A /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374AEB61DFA0AEB0021346A /* CustomUIView.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EB10B551DFC87A700B69B7C /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		0EB10B581DFC9CE100B69B7C /* Ext_UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ext_UIViewController.swift; sourceTree = "<group>"; };
 		68BEF792C44EEF9825B7627B /* Pods-KBPSocial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KBPSocial.release.xcconfig"; path = "Pods/Target Support Files/Pods-KBPSocial/Pods-KBPSocial.release.xcconfig"; sourceTree = "<group>"; };
 		765995DDB2AF650F18C1434F /* Pods_KBPSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KBPSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC7B1CBFBB456FA23338DB6 /* Pods-KBPSocial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KBPSocial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KBPSocial/Pods-KBPSocial.debug.xcconfig"; sourceTree = "<group>"; };
@@ -59,6 +63,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EB10B541DFC878D00B69B7C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0EB10B551DFC87A700B69B7C /* DataService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		0EB10B571DFC9CC300B69B7C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0EB10B581DFC9CE100B69B7C /* Ext_UIViewController.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		4A989B9A4B8AF5FA9C1C7CCA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +154,8 @@
 		E38D9DA71DF78EB3009C0E7F /* KBPSocial */ = {
 			isa = PBXGroup;
 			children = (
-				E3DBC1B61DFB174D0079712E /* KBPSocial.entitlements */,
+				0EB10B571DFC9CC300B69B7C /* Extensions */,
+				0EB10B541DFC878D00B69B7C /* Services */,
 				E374AEB81DFA0B6D0021346A /* Utilities */,
 				E38743851DF7913D00193596 /* Model */,
 				E38743841DF7913700193596 /* View */,
@@ -145,6 +166,7 @@
 				E38D9DAC1DF78EB4009C0E7F /* Main.storyboard */,
 				E38D9DB41DF78EB4009C0E7F /* Info.plist */,
 				E38D9DBA1DF78F53009C0E7F /* GoogleService-Info.plist */,
+				E3DBC1B61DFB174D0079712E /* KBPSocial.entitlements */,
 			);
 			path = KBPSocial;
 			sourceTree = "<group>";
@@ -284,10 +306,12 @@
 				E39110771DFB3D2A0020B6CE /* CustomCircleView.swift in Sources */,
 				E374AEB71DFA0AEB0021346A /* CustomUIView.swift in Sources */,
 				E38D9DAB1DF78EB3009C0E7F /* SignInVC.swift in Sources */,
+				0EB10B561DFC87A700B69B7C /* DataService.swift in Sources */,
 				E3DBC1B81DFB1BAC0079712E /* FeedVC.swift in Sources */,
 				E38D9DA91DF78EB3009C0E7F /* AppDelegate.swift in Sources */,
 				E374AEBE1DFA10DD0021346A /* CustomUITextField.swift in Sources */,
 				E374AEBA1DFA0B850021346A /* Constants.swift in Sources */,
+				0EB10B591DFC9CE100B69B7C /* Ext_UIViewController.swift in Sources */,
 				E33C82931DFB53B800BAA7E9 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -25,6 +25,10 @@ class SignInVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //call function from Ext_UIViewController extension
+        self.hideKeyboardWhenTappedAround()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -79,7 +83,8 @@ class SignInVC: UIViewController {
                 
                 // store 'uid' to local device keychain for subsequent logins
                if let user = user {
-                self.completeSignIn(id: user.uid)
+                let userData = ["provider": credential.provider]
+                self.completeSignIn(id: user.uid, userData: userData)
                 }
                 
                 
@@ -101,7 +106,8 @@ class SignInVC: UIViewController {
                     
                     // save id to keychain
                     if let user = user {
-                        self.completeSignIn(id: user.uid)
+                        let userData = ["provider": user.providerID]
+                        self.completeSignIn(id: user.uid, userData: userData)
                     }
                     
                 } else {
@@ -115,7 +121,8 @@ class SignInVC: UIViewController {
                             
                             // save id to keychain
                             if let user = user {
-                                self.completeSignIn(id: user.uid)
+                                let userData = ["provider": user.providerID]
+                                self.completeSignIn(id: user.uid, userData: userData)
                             }
                         }
                     }) // end if FIRAuth create user line....
@@ -126,11 +133,61 @@ class SignInVC: UIViewController {
         }
     }
     
-    func completeSignIn(id: String) {
+    func completeSignIn(id: String, userData: Dictionary<String, String>) {
+        
+        // setup new users in Firebase DB (not auth but profiles for posts)
+        DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
+        
+        // Store UID in keychain for future autologins
         let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
         print("KBP: UID saved to keychain: \(keychainResult)")
         
+        // Clear out login fields (incase they were used) so they will be 
+        // blank when we log out.
+        emailField.text = ""
+        pwdField.text = ""
+        
+        // now segue away
         performSegue(withIdentifier: "goToFeed", sender: nil)
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
