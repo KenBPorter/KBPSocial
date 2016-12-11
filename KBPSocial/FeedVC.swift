@@ -23,6 +23,17 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // initialize the Firebase 'listener(s)' to react to db changes
+
+        DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) -> Void in
+
+            // Do things with snapshot here
+            print("\nchanges in firebase db detected\n")
+            print(snapshot.value!)
+            
+        })
+        
     
     }
 
@@ -49,7 +60,6 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // @IBActions
     @IBAction func signOutPressed(_ sender: UIButton) {
         // remove UID from keychain
-        
         let keychainResult = KeychainWrapper.standard.remove(key: KEY_UID)
         print("KBP: uid removed from keychain \(keychainResult)")
         
