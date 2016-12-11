@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E1EA76C1DFDF7B70056F2F8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1EA76B1DFDF7B70056F2F8 /* Post.swift */; };
 		0EB10B561DFC87A700B69B7C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB10B551DFC87A700B69B7C /* DataService.swift */; };
 		0EB10B591DFC9CE100B69B7C /* Ext_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB10B581DFC9CE100B69B7C /* Ext_UIViewController.swift */; };
 		B13D6807B8959C65B42A0445 /* Pods_KBPSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765995DDB2AF650F18C1434F /* Pods_KBPSocial.framework */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E1EA76B1DFDF7B70056F2F8 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		0EB10B551DFC87A700B69B7C /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		0EB10B581DFC9CE100B69B7C /* Ext_UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ext_UIViewController.swift; sourceTree = "<group>"; };
 		68BEF792C44EEF9825B7627B /* Pods-KBPSocial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KBPSocial.release.xcconfig"; path = "Pods/Target Support Files/Pods-KBPSocial/Pods-KBPSocial.release.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		E38743851DF7913D00193596 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0E1EA76B1DFDF7B70056F2F8 /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				E374AEBC1DFA0DE90021346A /* CustomRoundUIButton.swift in Sources */,
 				E39110771DFB3D2A0020B6CE /* CustomCircleView.swift in Sources */,
 				E374AEB71DFA0AEB0021346A /* CustomUIView.swift in Sources */,
+				0E1EA76C1DFDF7B70056F2F8 /* Post.swift in Sources */,
 				E38D9DAB1DF78EB3009C0E7F /* SignInVC.swift in Sources */,
 				0EB10B561DFC87A700B69B7C /* DataService.swift in Sources */,
 				E3DBC1B81DFB1BAC0079712E /* FeedVC.swift in Sources */,

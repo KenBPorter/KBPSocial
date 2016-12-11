@@ -16,6 +16,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // @IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
+    var posts = [Post]()
     
     // UIViewController overrides
     override func viewDidLoad() {
@@ -25,14 +26,31 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         
         // initialize the Firebase 'listener(s)' to react to db changes
-
-        DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) -> Void in
-
-            // Do things with snapshot here
-            print("\nchanges in firebase db detected\n")
-            print(snapshot.value!)
+        
+        DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             
+            self.posts = [] // THIS IS THE NEW LINE
+            
+            if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                
+                for snap in snapshot {
+                    print("SNAP: \(snap)")
+
+                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                        let key = snap.key
+                        let post = Post(postKey: key, postData: postDict)
+                        
+                        // got a post, store it into the array
+                        self.posts.append(post)
+                    }
+                    
+                } // end of for
+            }
+            self.tableView.reloadData()
         })
+        
+        
+
         
     
     }
@@ -49,10 +67,16 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        print("rowsinsection: \(posts.count)")
+        
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let post = posts[indexPath.row]
+        print("KBP: \(post.caption)")
+        
         return tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
     }
     
