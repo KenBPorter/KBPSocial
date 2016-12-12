@@ -51,14 +51,9 @@ class PostCell: UITableViewCell {
                             FeedVC.imageCache.setObject(img, forKey: post.imageURL as NSString)
                         }
                     }
-                    
                 }
-                
-                
             })
-            
         }
-        
     }
     
 }

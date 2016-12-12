@@ -16,12 +16,16 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
 
     // @IBOutlets
     @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var imageAdd: CustomCircleView!
+    @IBOutlet weak var captionField: CustomUITextField!
+    
     
     var posts = [Post]()
     
     var imagePicker: UIImagePickerController!
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
+    var imageSelected = false
     
     
     // UIViewController overrides
@@ -114,6 +118,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             
             imageAdd.image = image
+            imageSelected = true
+            
         } else {
             print("KBP: wasn't a valid image picked")
         }
@@ -124,12 +130,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     }
     
     
-    
-    
     // @IBActions
     @IBAction func signOutPressed(_ sender: UIButton) {
         // remove UID from keychain
-        let keychainResult = KeychainWrapper.standard.remove(key: KEY_UID)
+        let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
         print("KBP: uid removed from keychain \(keychainResult)")
         
         // signout of firebase
@@ -147,6 +151,47 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     }
     
     
+    @IBAction func postBtnPressed(_ sender: Any) {
+        
+        // do a bit of checking before we allow a post
+        guard let caption = captionField.text, caption != "" else {
+            print("KBP: no caption provided - can't create post")
+            return
+        }
+        
+        guard let img = imageAdd.image, imageSelected == true else {
+            print("KBP: no image provided - can't create post")
+            return
+        }
+        
+        //time to updload stuff
+        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+            
+            // create a 'random' UUID string to associate with the image
+            let imgUID = UUID().uuidString
+            
+            let metadata = FIRStorageMetadata()
+            metadata.contentType = "image/jpeg"
+            
+            DataService.ds.REF_POST_IMAGES.child(imgUID).put(imgData,metadata: metadata) { (metadata, error) in
+                
+                if error != nil {
+                 print("KBP: Unable to upload img to firebase storage \(error)")
+                    
+                } else {
+                    print("KBP: Successfully uploaded img to firebase storage 👍")
+                    
+                    let downloadURL = metadata?.downloadURL()?.absoluteString
+                    
+                    
+                }
+                
+                
+            }
+            
+        }
+        
+    }
     
     
 }
