@@ -11,19 +11,31 @@ import SwiftKeychainWrapper
 import Firebase
 
 
-class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // @IBOutlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var imageAdd: CustomCircleView!
     
     var posts = [Post]()
+    
+    var imagePicker: UIImagePickerController!
+    
     
     // UIViewController overrides
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // initialize table view
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // initialize image picker
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        
         
         // initialize the Firebase 'listener(s)' to react to db changes
         
@@ -85,6 +97,25 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    // ImagePicker protocol methods/functions
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        // images and video can be returned in the array of returned stuff.  
+        // Make sure we are getting an image
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            
+            imageAdd.image = image
+        } else {
+            print("KBP: wasn't a valid image picked")
+        }
+        
+        // once image picked, make picker go away!
+        imagePicker.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    
+    
     
     // @IBActions
     @IBAction func signOutPressed(_ sender: UIButton) {
@@ -99,6 +130,16 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // dismiss this view controller - go back to previous VC
         dismiss(animated: true, completion: nil)
     }
+    
+    
+    @IBAction func addImagePressed(_ sender: Any) {
+        // show image picker controller
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    
+    
 }
 
 

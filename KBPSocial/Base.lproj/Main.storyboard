@@ -136,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-46" y="139"/>
+            <point key="canvasLocation" x="-138.40000000000001" y="138.98050974512745"/>
         </scene>
         <!--FeedVC-->
         <scene sceneID="xc4-l0-1Ot">
@@ -189,13 +189,17 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="cGi-ZT-273">
                                         <rect key="frame" x="8" y="8" width="343" height="49"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="tCo-ip-JXy" customClass="CustomCircleView" customModule="KBPSocial" customModuleProvider="target">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="tCo-ip-JXy" customClass="CustomCircleView" customModule="KBPSocial" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
                                                 <color key="backgroundColor" red="0.0" green="0.51372549020000002" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="49" id="Ocr-Ir-dTp"/>
                                                     <constraint firstAttribute="height" constant="49" id="XLq-kh-BnG"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="HFA-ro-bTq" appends="YES" id="9PQ-nB-gkH"/>
+                                                </connections>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dW-Zc-D0r" customClass="CustomUITextField" customModule="KBPSocial" customModuleProvider="target">
                                                 <rect key="frame" x="53" y="14" width="237" height="21"/>
@@ -344,6 +348,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageAdd" destination="tCo-ip-JXy" id="Scb-pC-cAl"/>
                         <outlet property="tableView" destination="rph-rh-sgV" id="ktU-N8-lRX"/>
                     </connections>
                 </viewController>
@@ -353,8 +358,13 @@
                         <action selector="signOutPressed:" destination="W2R-qY-Lx1" id="XsL-aZ-zEH"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="HFA-ro-bTq">
+                    <connections>
+                        <action selector="addImagePressed:" destination="W2R-qY-Lx1" id="evG-hk-Q7f"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="679" y="139"/>
+            <point key="canvasLocation" x="610" y="139"/>
         </scene>
     </scenes>
     <resources>
