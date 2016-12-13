@@ -18,8 +18,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var imageAdd: CustomCircleView!
-    @IBOutlet weak var captionField: CustomUITextField!
-    
+    @IBOutlet weak var captionField: CustomUITextField!    
     
     var posts = [Post]()
     
@@ -42,11 +41,13 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker.delegate = self
         
         
-        // initialize the Firebase 'listener(s)' to react to db changes
+        // initialize the Firebase 'observer' to react to db.posts changes
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             
-            self.posts = [] // THIS IS THE NEW LINE
+            // within an ({enclosure}) so we need the 'self.' syntax a lot
+            
+            self.posts = []
             
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
@@ -65,11 +66,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             }
             self.tableView.reloadData()
         })
-        
-        
-
-        
-    
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -209,7 +206,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         "likes": 0 as AnyObject
         ]
         
-        // create new obj in FirDB - let FirDB create a UUID
+        // create new obj in FirDB - let FirDB create a UUID for the user
         let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
         firebasePost.setValue(post)
         
