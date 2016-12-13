@@ -183,6 +183,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                     
                     let downloadURL = metadata?.downloadURL()?.absoluteString
                     
+                    if let url = downloadURL {
+                        self.postToFirebase(imgURL: url)
+                    }
+                    
                     
                 }
                 
@@ -194,36 +198,32 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     }
     
     
+    
+    // some functions of our own
+    
+    func postToFirebase(imgURL: String) {
+        
+        let post: Dictionary<String, AnyObject> = [
+        "caption": captionField.text as AnyObject,
+        "imageURL": imgURL as AnyObject,
+        "likes": 0 as AnyObject
+        ]
+        
+        // create new obj in FirDB - let FirDB create a UUID
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        // now clean up the UI 
+        captionField.text = ""
+        imageSelected = false
+        imageAdd.image = UIImage(named: "add-image")
+        
+        // reload tableView in UI with new post
+        tableView.reloadData()
+        
+    }
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
